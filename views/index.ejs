@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<title><%= title %></title>-->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Solar System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+  </head>
+  <body>
+    <!--<h1><%= title %></h1>-->
+    <!--<p>Welcome to <%= title %></p>-->
+
+    <section id="page"> <!-- Defining the #page section with the section tag -->
+
+      <header> <!-- Defining the header section of the page with the appropriate tag -->
+
+        <h1>Solar System</h1>
+        <h3>The most interesting planets</h3>
+
+
+        <nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
+          <ul>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/form" onclick="f()">Admin</a></li>
+          </ul>
+        </nav>
+
+      </header>
+
+      <section id="articles"> <!-- A new section with the articles -->
+
+        <% for(var i=0; i < data.length; i++) { %>
+        <article>
+
+          <div class="article_header">
+            <h2><%= data[i].title %></h2>
+            <div>
+              <button onclick="f('<%= data[i].title %>')">Delete</button>
+              <button style="margin: 0 20px">Edit</button>
+            </div>
+          </div>
+
+          <div class="articleBody clear">
+            <figure> <!-- The figure tag marks data (usually an image) that is part of the article -->
+              <img src="images/<%= data[i].image %>" width="500" height="500">
+            </figure>
+            <p><%= data[i].body %></p>
+          </div>
+        </article>
+        <% } %>
+
+      </section>
+
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <% { %>
+    <script>
+        var title = '<%= title %>'
+    </script>
+    <script src="/javascripts/blog.js"></script>
+    <% } %>
+  </body>
+</html>
