@@ -19,7 +19,7 @@
         <nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
             <ul>
                 <li><a href="/">Blog</a></li>
-                <li><a href="/form" onclick="f()">Admin</a></li>
+                <li><a href="/form">Admin</a></li>
             </ul>
         </nav>
 
@@ -31,21 +31,33 @@
 
             <form name="myform" method="Post" onsubmit="return formSubmit()">
                 <!--<div style="margin: 10px 0"><label >First name</label></div>-->
-                <p>First name</p>
-                <input id="title" placeholder="First name" type="text" name="name"
-                       style="width: 100%; background-color: rgba(1, 1, 1, 0); border: 1px solid white; border-radius: 3px; height: 30px;
-box-sizing: border-box; padding-left: 20px">
-                <label>Last name</label>
-                <input id="lastName" placeholder="Last name" type="text" name="name"><br />
-                <label>Email</label>
-                <input id="file" type="file" name="email"><br />
+                <p>Title</p>
+                <input id="title" placeholder="Title" type="text" name="name"
+                       style="">
+                <p>Description</p>
+                <textarea id="description" placeholder="Description" type="text" name="name" style="height: 100px"></textarea>
+                <p>Image</p>
+                <input id="file" type="file" name="email">
 
-
-                <br /><br />
-                <input type="submit" value="Submit">
-                <p id="errors"></p>
+                <input type="submit" value="Submit" style="border: none; background-color: #0196e3">
+                <p id="errors" style="font-weight: bold; color: red"></p>
             </form>
 
+
+
+        </article>
+
+        <article>
+            <form name="myform" method="Post" onsubmit="">
+                <!--<div style="margin: 10px 0"><label >First name</label></div>-->
+                <p>Email</p>
+                <input id="email" placeholder="Email" type="email">
+                <p>Password</p>
+                <input id="password" placeholder="Password" type="password">
+                <input type="submit" value="Log in" style="border: none; background-color: #0196e3" onclick="return formSubmitAuth(true)">
+                <input type="submit" value="Register" style="border: none; background-color: #0196e3" onclick="return formSubmitAuth(false)">
+                <p id="errorsAuth" style="font-weight: bold; color: red"></p>
+            </form>
         </article>
 
     </section>
@@ -54,7 +66,9 @@ box-sizing: border-box; padding-left: 20px">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <% { %>
 <script>
-    var title = '<%= title %>'
+    let idGlob = '<%= id %>'
+    let titleGlob = '<%= title %>'
+    let descriptionGlob = '<%= description %>'
 </script>
 <script src="/javascripts/formFront.js"></script>
 <% } %>

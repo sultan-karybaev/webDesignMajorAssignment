@@ -282,3 +282,8 @@ footer a.up{
 .article_header div button {
 	background-color: rgba(1, 1, 1, 0); color: white; width: 50px; height: 100%; border-radius: 5px; float: right
 }
+
+#articles form input, textarea {
+	width: 100%; background-color: rgba(1, 1, 1, 0); border: 1px solid white; border-radius: 3px; height: 30px;
+	box-sizing: border-box; padding-left: 20px; margin-bottom: 10px;
+}
